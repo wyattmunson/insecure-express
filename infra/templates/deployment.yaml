@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-express-app
+  name: insecure-express-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: simple-express-app
+      app: insecure-express-app
   template:
     metadata:
       labels:
-        app: simple-express-app
+        app: insecure-express-app
     spec:
       containers:
-        - name: simple-express-app
-          image: simple-express-app:latest # Change this to your registry path if needed
+        - name: insecure-express-app
+          image: {{ .Values.image }}
           ports:
             - containerPort: 3000
