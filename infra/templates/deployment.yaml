@@ -12,6 +12,8 @@ spec:
       labels:
         app: insecure-express-app
     spec:
+      imagePullSecrets:
+        - name: docker-registry-secret1
       containers:
         - name: insecure-express-app
           image: {{ .Values.image }}
